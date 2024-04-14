@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cards/styles.css' %}">
     <title>Flashcards App</title>
 </head>
 <body>
     
-    <header>
+    <header class="header">
         <h1>Flashcards App</h1>
         {% include "cards/navigation.html" %}
     </header>

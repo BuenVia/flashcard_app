@@ -1,0 +1,19 @@
+:root {
+    --bg-main: #333;
+    --bg-head: #222;
+    --txt-main: #eee;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--txt-main);
+}
+
+.header {
+    background-color: var(--bg-head);
+}
+
+.card-word {
+    width: 200px;
+    background-color: var(--bg-head);
+}

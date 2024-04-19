@@ -1,3 +1,7 @@
 <a href="/">Home</a>
 
 <p>Study Path</p>
+
+{% for stage in stages %}
+    <a href="{{ stage.id }}">{{ stage.stage }}</a>
+{% endfor %}

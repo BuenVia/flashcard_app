@@ -1,0 +1,31 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222;
+    color: #ddd;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.links {
+    margin: 1em;
+    padding: .5em;
+    color: #ddd;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.links:hover {
+    transition: .5s;
+    color: #fff;
+    font-size: 20px;
+}

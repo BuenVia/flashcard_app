@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> {% endcomment %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'studypath/styles.css' %}">
 </head>
 <body>
 
-<a href="/">Home</a>
+    <header class="links-container">
+        <a href="/" class="links">Home</a>
+        <a href="/studypath" class="links">Study Path</a>
 
-<a href="/studypath">Study Path</a>
+    </header>
+
+
 
 {% block content %}
 

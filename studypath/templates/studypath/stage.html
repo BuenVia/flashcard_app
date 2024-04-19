@@ -1,0 +1,13 @@
+{% extends "studypath/base.html" %}
+
+{% block content %}
+
+<p>You are looking at stage {{ stage }} </p>
+
+{% for word in words %}
+
+<p>{{ word.id }}: {{ word.eng_word }} - {{ word.spa_word }} - {{ word.grammar_type }} - {{ word.date_created }}</p>
+
+{% endfor %}
+
+{% endblock content %}

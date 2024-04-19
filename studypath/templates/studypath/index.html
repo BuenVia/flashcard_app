@@ -1,7 +1,7 @@
-<a href="/">Home</a>
+{% extends "studypath/base.html" %}
 
-<p>Study Path</p>
-
+{% block content %}
 {% for stage in stages %}
     <a href="{{ stage.id }}">{{ stage.stage }}</a>
 {% endfor %}
+{% endblock content %}

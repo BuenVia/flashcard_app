@@ -1,12 +1,13 @@
 from django.shortcuts import render, HttpResponse
 
-from .models import Stage
+from .models import Word, Stage
 
-# Create your views here.
+
 def index(request):
     stages_list = Stage.objects.all()
     return render(request, "studypath/index.html", {"stages": stages_list})
 
 
 def stages(request, stage):
-    return HttpResponse("You are looking at stage %s" % stage)
+    words_list = Word.objects.all()
+    return render(request, "studypath/stage.html", {"stage" : stage, "words": words_list})

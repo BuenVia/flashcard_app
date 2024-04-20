@@ -1,7 +1,9 @@
 {% extends "studypath/base.html" %}
 
 {% block content %}
-{% for stage in stages %}
-    <a href="{{ stage.id }}">{{ stage.stage }}</a>
-{% endfor %}
+<div class="index-container">
+    {% for stage in stages %}
+    <a href="{{ stage.id }}" class="links">Stage {{ stage.stage }}</a>
+    {% endfor %}
+</div>
 {% endblock content %}

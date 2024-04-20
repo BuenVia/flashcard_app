@@ -5,37 +5,43 @@
 
     <h2>Stage {{ stage }}</h2>
     
-    <div class="grammar-box">
+    {% if words|length > 0 %}
+        <div class="grammar-box">
+            
+            <h3>Articles</h3>
+            {% for article in articles %}
+            <p>{{ article.eng_word }}</p>
+            {% endfor %}
+        </div>
         
-        <h3>Articles</h3>
-        {% for article in articles %}
-        <p>{{ article.eng_word }}</p>
-        {% endfor %}
-    </div>
+        <div class="grammar-box">
+            
+            <h3>Pronouns</h3>
+            {% for pronoun in pronouns %}
+            <p>{{ pronoun.eng_word }}</p>
+            {% endfor %}
+        </div>
+        
+        <div class="grammar-box">
+            
+            <h3>Adjectives</h3>
+            {% for adjective in adjectives %}
+            <p>{{ adjective.eng_word }}</p>
+            {% endfor %}
+        </div>
+        
+        <div class="grammar-box">
+            
+            <h5>Full List</h5>
+            {% for word in words %}
+            <p>{{ word.id }}: {{ word.eng_word }} - {{ word.spa_word }} - {{ word.grammar_type }} - {{ word.date_created }}</p>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Nothing to display yet...</p>
+    {% endif %}
+
     
-    <div class="grammar-box">
-        
-        <h3>Pronouns</h3>
-        {% for pronoun in pronouns %}
-        <p>{{ pronoun.eng_word }}</p>
-        {% endfor %}
-    </div>
-    
-    <div class="grammar-box">
-        
-        <h3>Adjectives</h3>
-        {% for adjective in adjectives %}
-        <p>{{ adjective.eng_word }}</p>
-        {% endfor %}
-    </div>
-    
-    <div class="grammar-box">
-        
-        <h5>Full List</h5>
-        {% for word in words %}
-        <p>{{ word.id }}: {{ word.eng_word }} - {{ word.spa_word }} - {{ word.grammar_type }} - {{ word.date_created }}</p>
-        {% endfor %}
-    </div>
     
 </div>
     {% endblock content %}

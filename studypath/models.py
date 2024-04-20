@@ -20,7 +20,7 @@ class GrammarType(models.Model):
 class Word(models.Model):
     eng_word = models.CharField(max_length=55)
     spa_word = models.CharField(max_length=45)
-    spa_word_fem = models.CharField(max_length=45, null=True)
+    spa_word_fem = models.CharField(max_length=45, null=True, blank=True)
     grammar_type = models.ForeignKey(GrammarType, on_delete=models.CASCADE)
     stage = models.ForeignKey(Stage, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)

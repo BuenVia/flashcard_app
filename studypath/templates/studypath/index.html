@@ -3,7 +3,13 @@
 {% block content %}
 <div class="index-container">
     {% for stage in stages %}
-    <a href="{{ stage.id }}" class="links">Stage {{ stage.stage }}</a>
+        <div>
+            <span>Stage {{ stage.stage }}</span>
+            <a href="learn/{{ stage.id }}" class="links">Learn</a>
+            <a href="practice/{{ stage.id }}" class="links">Practice</a>
+            <a href="test/{{ stage.id }}" class="links">Test</a>
+        </div>
+
     {% endfor %}
 </div>
 {% endblock content %}

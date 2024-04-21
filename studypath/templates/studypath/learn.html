@@ -1,41 +1,56 @@
 {% extends "studypath/base.html" %}
 
 {% block content %}
-<div class="stage-container">
+<div class="page-container">
 
-    <h2>Stage {{ stage }}: Learn</h2>
+    <div class="learn-info">
+        <h2>Stage {{ stage }}: Learn</h2>
+        {% for test in testlist %}
+        <p>{{ test }}</p>
+        {% endfor %}
+    </div>
+
     
     {% if words|length > 0 %}
-        <div class="grammar-box">
-            
-            <h3>Articles</h3>
-            {% for article in articles %}
-            <p>{{ article.eng_word }}</p>
-            {% endfor %}
+        <div class="learn-box-container">
+            <div class="learn-card-container">
+                <h3>Articles & Nouns</h3>
+                {% for article in articles %}
+                <div class="learn-card">
+                    <p class="learn-word-eng">{{ article.eng_word }}</p>
+                    <p class="learn-word-spa">{{ article.spa_word }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="learn-card-container">
+                <h3>Pronouns</h3>
+                {% for pronoun in pronouns %}
+                <div class="learn-card">
+                    <p class="learn-word-eng">{{ pronoun.eng_word }}</p>
+                    <p class="learn-word-spa">{{ pronoun.spa_word }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="learn-card-container">
+                <h3>Adjectives</h3>
+                {% for adjective in adjectives %}
+                <div class="learn-card">
+                    <p class="learn-word-eng">{{ adjective.eng_word }}</p>
+                    <p class="learn-word-spa">{{ adjective.spa_word }}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
         
-        <div class="grammar-box">
-            
-            <h3>Pronouns</h3>
-            {% for pronoun in pronouns %}
-            <p>{{ pronoun.eng_word }}</p>
-            {% endfor %}
-        </div>
-        
-        <div class="grammar-box">
-            
-            <h3>Adjectives</h3>
-            {% for adjective in adjectives %}
-            <p>{{ adjective.eng_word }}</p>
-            {% endfor %}
-        </div>
-        
-        <div class="grammar-box">
-            
+        <div class="learn-all-container">
             <h5>Full List</h5>
-            {% for word in words %}
-            <p>{{ word.id }}: {{ word.eng_word }} - {{ word.spa_word }} - {{ word.grammar_type }} - {{ word.date_created }}</p>
-            {% endfor %}
+            <div class="learn-all-card">
+                {% for word in words %}
+                <p class="learn-all-word">{{ word.id }}: {{ word.eng_word }} - {{ word.spa_word }} - {{ word.grammar_type }} - {{ word.date_created }}</p>
+                {% endfor %}
+            </div>
         </div>
     {% else %}
         <p>Nothing to display yet...</p>
@@ -44,4 +59,8 @@
     
     
 </div>
-    {% endblock content %}
+
+{% load static %}
+<script src="{% static 'studypath/js/learn.js' %}"></script>
+    
+{% endblock content %}

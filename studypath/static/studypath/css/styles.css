@@ -37,6 +37,7 @@ body {
 }
 
 .page-container {
+    margin: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,25 +46,25 @@ body {
 }
 
 .learn-info {
-    width: 80%;
+    width: 100%;
     margin: 1em;
     padding: 1em;
     background-color: #555;
 }
 
 .learn-box-container {
-    width: 80%;
+    width: 100%;
     margin: 1em;
     padding: 1em;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #555;
 }
 
 .learn-card-container {
-    width: 40%;
+    width: 100%;
     margin: 1em;
     padding: 1em;
     background-color: #777;
@@ -72,13 +73,47 @@ body {
 .learn-card {
     margin: .5em;
     padding: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #999;
+    cursor: pointer;
 }
 
 .learn-word-eng {}
 
-.learn-word-spa {
-    display: none;
+.learn-word-spa {}
+
+.learn-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.learn-inputs-box {
+    display: flex;
+    flex-direction: row;
+}
+.learn-inputs-box div {
+    width: 100px;
+    margin: .5em 0;
+}
+
+.learn-inputs-box input {
+    margin: .25em;
+    padding: .25em;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.learn-submit {
+    width: 100px;
+    padding: .25em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .learn-all-container {

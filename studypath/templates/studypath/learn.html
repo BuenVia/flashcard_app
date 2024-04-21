@@ -5,53 +5,45 @@
 
     <div class="learn-info">
         <h2>Stage {{ stage }}: Learn</h2>
-        {% for test in testlist %}
-        <p>{{ test }}</p>
-        {% endfor %}
     </div>
 
     
-    {% if words|length > 0 %}
+    {% if study_list|length > 0 %}
         <div class="learn-box-container">
-            <div class="learn-card-container">
-                <h3>Articles & Nouns</h3>
-                {% for article in articles %}
-                <div class="learn-card">
-                    <p class="learn-word-eng">{{ article.eng_word }}</p>
-                    <p class="learn-word-spa">{{ article.spa_word }}</p>
-                </div>
-                {% endfor %}
-            </div>
 
-            <div class="learn-card-container">
-                <h3>Pronouns</h3>
-                {% for pronoun in pronouns %}
-                <div class="learn-card">
-                    <p class="learn-word-eng">{{ pronoun.eng_word }}</p>
-                    <p class="learn-word-spa">{{ pronoun.spa_word }}</p>
-                </div>
-                {% endfor %}
-            </div>
+            {% for sl in study_list %}
 
-            <div class="learn-card-container">
-                <h3>Adjectives</h3>
-                {% for adjective in adjectives %}
-                <div class="learn-card">
-                    <p class="learn-word-eng">{{ adjective.eng_word }}</p>
-                    <p class="learn-word-spa">{{ adjective.spa_word }}</p>
+                {% if sl.words|length > 0 %}
+                <div class="learn-card-container">
+                    <h3>{{ sl.grammar_type }}</h3>
+                    
+                    {% for word in sl.words %}
+                    <div class="learn-card" id="{{ words.id }}">
+                        <p class="learn-word-eng" id="engWord">{{ word.eng_word }}</p>
+                        <p class="learn-word-eng" id="spaWord">
+                            {{ word.spa_word }}
+                            {% if word.spa_word_fem %} / 
+                            {{ word.spa_word_fem }} 
+                            {% endif %}</p>
+                    </div>
+                    {% endfor %}
+
+                    <div class="learn-inputs">
+                        {% for word in sl.words %}
+                            <div class="learn-inputs-box">
+                                <div>{{ word.eng_word }}</div>
+                                <input type="text" />
+                            </div>
+                        {% endfor %}
+                        <button class="learn-submit">Check</button>
+                    </div>
+
                 </div>
-                {% endfor %}
-            </div>
-        </div>
-        
-        <div class="learn-all-container">
-            <h5>Full List</h5>
-            <div class="learn-all-card">
-                {% for word in words %}
-                <p class="learn-all-word">{{ word.id }}: {{ word.eng_word }} - {{ word.spa_word }} - {{ word.grammar_type }} - {{ word.date_created }}</p>
-                {% endfor %}
-            </div>
-        </div>
+                {% endif %}
+                
+            {% endfor %}
+
+    
     {% else %}
         <p>Nothing to display yet...</p>
     {% endif %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.db.models import Count
-from .models import Word, Stage
+from .models import Word, Stage, GrammarType
 
 
 def index(request):
@@ -9,22 +9,22 @@ def index(request):
 
 
 def learn(request, stage):
-    words_list = Word.objects.filter(stage=stage)
-    testlist = Word.objects.filter(stage=stage).values('grammar_type').annotate(dcount=Count('grammar_type'))
-
-    noun_article_list = words_list.filter(grammar_type=1)
-    pronoun_list = words_list.filter(grammar_type=2)
-    adjectives_list = words_list.filter(grammar_type=3)
-
+    # words_list = Word.objects.filter(stage=stage)
+    # noun_article_list = words_list.filter(grammar_type=1)
+    # pronoun_list = words_list.filter(grammar_type=2)
+    # adjectives_list = words_list.filter(grammar_type=3)
     
-    
+    study_list = []
+    grammar_type = GrammarType.objects.all()
+
+    for gt in grammar_type:
+        words = Word.objects.filter(stage=stage).filter(grammar_type=gt)
+        word_list = { 'grammar_type': gt.type, "words": words }
+        study_list.append(word_list)
+
     return render(request, "studypath/learn.html", {
         "stage" : stage, 
-        "words": words_list, 
-        "articles": noun_article_list,
-        "pronouns": pronoun_list,
-        "adjectives": adjectives_list,
-        "testlist": tes
+        "study_list": study_list
         })
 
 

@@ -1,0 +1,1 @@
+console.log("Langx Home Page");

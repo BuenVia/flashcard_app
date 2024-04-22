@@ -19,24 +19,18 @@
                     
                     {% for word in sl.words %}
                     <div class="learn-card" id="{{ words.id }}">
-                        <p class="learn-word-eng" id="engWord">{{ word.eng_word }}</p>
-                        <p class="learn-word-eng" id="spaWord">
+                        <span id="engWord">{{ word.eng_word }}</span>
+                        <span id="spaWord">
                             {{ word.spa_word }}
-                            {% if word.spa_word_fem %} / 
-                            {{ word.spa_word_fem }} 
-                            {% endif %}</p>
-                    </div>
-                    {% endfor %}
-
-                    <div class="learn-inputs">
-                        {% for word in sl.words %}
+                            {% if word.spa_word_fem %}
+                                / {{ word.spa_word_fem }} 
+                            {% endif %}</span>
                             <div class="learn-inputs-box">
                                 <div>{{ word.eng_word }}</div>
                                 <input type="text" />
                             </div>
-                        {% endfor %}
-                        <button class="learn-submit">Check</button>
                     </div>
+                    {% endfor %}
 
                 </div>
                 {% endif %}

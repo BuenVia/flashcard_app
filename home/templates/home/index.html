@@ -1,2 +1,19 @@
-<a href="/studypath">Study Path</a>
-<a href="/flashcards">Flashcards</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <script src="{% static 'home/js/index.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="page-container">
+        <a href="/studypath" class="link-btn">Study Path</a>
+        <a href="/flashcards" class="link-btn">Flashcards</a>
+    </div>
+
+</body>
+</html>

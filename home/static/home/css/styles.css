@@ -1,0 +1,41 @@
+:root {
+    --bg-clr: #222;
+    --txt-clr: #ddd;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-clr);
+    color: var(-txt-clr);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-btn {
+    padding: .5em;
+    margin: 1em;
+    background-color: var(--txt-clr);
+    color: var(--bg-clr);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link-btn:hover {
+    transition: .5ms;
+    background-color: #fff;
+    color: #111;
+}

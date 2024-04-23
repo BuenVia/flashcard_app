@@ -7,6 +7,7 @@
         <h2>Stage {{ stage }}: Learn</h2>
     </div>
 
+    <div id="card"></div>
     
     {% if study_list|length > 0 %}
         <div class="learn-box-container">
@@ -19,6 +20,7 @@
                     
                     {% for word in sl.words %}
                     <div class="learn-card" id="{{ words.id }}">
+                        <p>{{ word.grammar_type }}</p>
                         <span id="engWord">{{ word.eng_word }}</span>
                         <span id="spaWord">
                             {{ word.spa_word }}
@@ -48,5 +50,6 @@
 
 {% load static %}
 <script src="{% static 'studypath/js/learn.js' %}"></script>
+
     
 {% endblock content %}

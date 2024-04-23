@@ -1,6 +1,12 @@
+from typing import Any
 from django.shortcuts import render, HttpResponse
-from django.db.models import Count
+from django.http import JsonResponse
+from rest_framework import generics
+from rest_framework.request import Request
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .models import Word, Stage, GrammarType
+from .serializers import WordSerializer, GrammarTypeSerializer
 
 
 def index(request):
@@ -8,12 +14,7 @@ def index(request):
     return render(request, "studypath/index.html", {"stages": stages_list})
 
 
-def learn(request, stage):
-    # words_list = Word.objects.filter(stage=stage)
-    # noun_article_list = words_list.filter(grammar_type=1)
-    # pronoun_list = words_list.filter(grammar_type=2)
-    # adjectives_list = words_list.filter(grammar_type=3)
-    
+def learn(request, stage):    
     study_list = []
     grammar_type = GrammarType.objects.all()
 
@@ -26,7 +27,7 @@ def learn(request, stage):
         "stage" : stage, 
         "study_list": study_list
         })
-
+    
 
 def practice(request, stage):
     return render(request, "studypath/practice.html", {"stage": stage})
@@ -34,3 +35,18 @@ def practice(request, stage):
 
 def test(request, stage):
     return render(request, "studypath/test.html", {"stage": stage})
+
+
+class StudyListCreate(generics.ListCreateAPIView):
+    serializer_class = WordSerializer
+    
+    def get_queryset(self):
+        return Word.objects.filter(stage=self.kwargs["stage"])
+
+
+class GrammarTypeListCreate(generics.ListCreateAPIView):
+    
+    queryset = GrammarType.objects.all()
+    serializer_class = GrammarTypeSerializer
+
+    

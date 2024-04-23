@@ -15,6 +15,10 @@ class GrammarType(models.Model):
     
     def __str__(self):
         return self.type
+    
+    class Meta:
+        managed = True
+        db_table = 'studypath_grammartype'
 
 
 class Word(models.Model):
@@ -28,3 +32,7 @@ class Word(models.Model):
     def __str__(self):
         return self.eng_word
     
+    class Meta:
+        managed = True
+        db_table = 'studypath_word'
+        

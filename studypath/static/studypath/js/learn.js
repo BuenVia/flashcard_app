@@ -20,8 +20,20 @@ const getData = async () => {
 }
 
 const addCard = (dataArr) => {
-    const card = document.getElementById("card")
-    card.innerText = dataArr[0]['eng_word']
+    const spaWord = document.getElementById("spaWord")
+    const engWord = document.getElementById("engWord")
+    const userAns = document.getElementById("userAns")
+    const submitBtn = document.getElementById("userSubmit")
+    let index = 0
+
+    spaWord.innerText = dataArr[index]['spa_word']
+    engWord.innerText = dataArr[index]["eng_word"]
+
+    submitBtn.addEventListener("click", () => {
+        index++
+        spaWord.innerText = dataArr[index]['spa_word']
+        engWord.innerText = dataArr[index]["eng_word"]
+    })
 }
 
 

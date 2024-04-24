@@ -1,3 +1,8 @@
+:root {
+    --bg-clr: #222;
+    --txt-clr: #ddd;
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -81,9 +86,28 @@ body {
     cursor: pointer;
 }
 
-.learn-word-eng {}
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
 
-.learn-word-spa {}
+.input-user {
+    padding: .5em;
+    margin: .5em 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    text-align: center;
+}
+
+.learn-word-spa {
+    font-size: 52px;
+    text-transform: capitalize;
+}
+
+.learn-word-eng {
+    text-transform: capitalize;
+}
 
 .learn-inputs-box {
     display: flex;
@@ -128,4 +152,21 @@ body {
     padding: .25em;
     margin: .25em;
     background-color: #999;
+}
+
+.link-btn {
+    padding: .5em;
+    margin: 1em;
+    background-color: var(--txt-clr);
+    color: var(--bg-clr);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link-btn:hover {
+    transition: .5ms;
+    background-color: #fff;
+    color: #111;
 }

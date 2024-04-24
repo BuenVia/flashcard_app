@@ -7,7 +7,16 @@
         <h2>Stage {{ stage }}: Learn</h2>
     </div>
 
-    <div id="card"></div>
+    <div class="learn-box-container">
+        <div class="learn-card">
+            <p class="learn-word-spa" id="spaWord">Spanish Word</p>
+            <p class="learn-word-eng" id="engWord">English Word</p>
+            <div class="input-container">
+                <input type="text" class="input-user" id="userAns" placeholder="Type here...">
+                <button class="link-btn" id="userSubmit">Next</button>
+            </div>
+        </div>
+    </div>
     
     {% if study_list|length > 0 %}
         <div class="learn-box-container">

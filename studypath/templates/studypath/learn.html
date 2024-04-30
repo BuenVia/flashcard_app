@@ -8,6 +8,12 @@
     </div>
 
     <div class="learn-box-container">
+        {% for sl in study_list %}
+            <button class="link-btn">{{ sl.grammar_type }}</button>
+        {% endfor %}
+    </div>
+
+    <div class="learn-box-container">
         <div class="learn-card">
             <p class="learn-word-spa" id="spaWord">Spanish Word</p>
             <p class="learn-word-eng" id="engWord">English Word</p>
@@ -32,9 +38,9 @@
                         <p>{{ word.grammar_type }}</p>
                         <span id="engWord">{{ word.eng_word }}</span>
                         <span id="spaWord">
-                            {{ word.spa_word }}
-                            {% if word.spa_word_fem %}
-                                / {{ word.spa_word_fem }} 
+                            {{ word.fre_word }}
+                            {% if word.fre_word_fem %}
+                                / {{ word.fre_word_fem }} 
                             {% endif %}</span>
                             <div class="learn-inputs-box">
                                 <div>{{ word.eng_word }}</div>

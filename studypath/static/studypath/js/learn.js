@@ -26,12 +26,12 @@ const addCard = (dataArr) => {
     const submitBtn = document.getElementById("userSubmit")
     let index = 0
 
-    spaWord.innerText = dataArr[index]['spa_word']
+    spaWord.innerText = dataArr[index]['fre_word']
     engWord.innerText = dataArr[index]["eng_word"]
 
     submitBtn.addEventListener("click", () => {
         index++
-        spaWord.innerText = dataArr[index]['spa_word']
+        spaWord.innerText = dataArr[index]['fre_word']
         engWord.innerText = dataArr[index]["eng_word"]
     })
 }

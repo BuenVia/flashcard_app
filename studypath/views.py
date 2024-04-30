@@ -14,7 +14,7 @@ def index(request):
     return render(request, "studypath/index.html", {"stages": stages_list})
 
 
-def learn(request, stage):    
+def learn(request, stage):
     study_list = []
     grammar_type = GrammarType.objects.all()
 

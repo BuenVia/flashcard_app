@@ -35,17 +35,17 @@
                     
                     {% for word in sl.words %}
                     <div class="learn-card" id="{{ words.id }}">
-                        <p>{{ word.grammar_type }}</p>
+                        {% comment %} <p>{{ word.grammar_type }}</p> {% endcomment %}
                         <span id="engWord">{{ word.eng_word }}</span>
                         <span id="spaWord">
                             {{ word.fre_word }}
                             {% if word.fre_word_fem %}
                                 / {{ word.fre_word_fem }} 
                             {% endif %}</span>
-                            <div class="learn-inputs-box">
+                            {% comment %} <div class="learn-inputs-box">
                                 <div>{{ word.eng_word }}</div>
                                 <input type="text" />
-                            </div>
+                            </div> {% endcomment %}
                     </div>
                     {% endfor %}
 

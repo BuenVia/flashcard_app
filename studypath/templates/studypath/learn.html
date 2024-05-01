@@ -9,59 +9,9 @@
 
     <div class="learn-box-container">
         {% for gt in grammar_type %}
-            <a href="/studypath/learn/{{ stage }}/vocab/{{ gt.id }}?stage={{ stage }}&grammar_type={{ gt.id }}">
-                <button class="link-btn">{{ gt }}</button>
-            </a>
+            <a class="link-btn" href="/studypath/learn/{{ stage }}/vocab/{{ gt.id }}?stage={{ stage }}&grammar_type={{ gt.id }}">{{ gt.type }}</a>
         {% endfor %}
-    </div>
-
-    <!-- <div class="learn-box-container">
-        <div class="learn-card">
-            <p class="learn-word-spa" id="spaWord">French Word</p>
-            <p class="learn-word-eng" id="engWord">English Word</p>
-            <div class="input-container">
-                <input type="text" class="input-user" id="userAns" placeholder="Type here...">
-                <button class="link-btn" id="userSubmit">Next</button>
-            </div>
-        </div>
-    </div> -->
-    
-    <!-- {% if study_list|length > 0 %}
-        <div class="learn-box-container">
-
-            {% for sl in study_list %}
-
-                {% if sl.words|length > 0 %}
-                <div class="learn-card-container">
-                    <h3>{{ sl.grammar_type }}</h3>
-                    
-                    {% for word in sl.words %}
-                    <div class="learn-card" id="{{ words.id }}">
-                        {% comment %} <p>{{ word.grammar_type }}</p> {% endcomment %}
-                        <span id="engWord">{{ word.eng_word }}</span>
-                        <span id="spaWord">
-                            {{ word.fre_word }}
-                            {% if word.fre_word_fem %}
-                                / {{ word.fre_word_fem }} 
-                            {% endif %}</span>
-                            {% comment %} <div class="learn-inputs-box">
-                                <div>{{ word.eng_word }}</div>
-                                <input type="text" />
-                            </div> {% endcomment %}
-                    </div>
-                    {% endfor %}
-
-                </div>
-                {% endif %}
-                
-            {% endfor %}
-
-    
-    {% else %}
-        <p>Nothing to display yet...</p>
-    {% endif %} -->
-
-    
+    </div>  
     
 </div>
 

@@ -1,8 +1,6 @@
 const learnCards = document.querySelectorAll(".learn-card")
 const loc = window.location.href
 const stage = Object.values(loc.split("/")).slice(-1)
-// const url = `../learn-data/${stage[0]}`
-// const url = `/studypath/learn-data1/1/vocab/3?stage=1`
 const params = new URLSearchParams(window.location.search)
 const qt_stage = params.get('stage')
 const qt_gt = params.get('grammar_type')
@@ -28,12 +26,17 @@ const getData = async () => {
 const addCard = (dataArr) => {
     const freWord = document.getElementById("freWord")
     const engWord = document.getElementById("engWord")
+    const audioBtn = document.getElementById("audioBtn")
     const submitBtn = document.getElementById("userSubmit")
     let index = 0
    
     freWord.innerText = dataArr[index]['fre_word']
     engWord.innerText = dataArr[index]["eng_word"]
     
+    audioBtn.addEventListener("click", () => {
+        playAudio(dataArr[index]['fre_word'], .1, 1)
+    })
+
     submitBtn.addEventListener("click", () => {
         if (index < dataArr.length -1) {
             index++
@@ -41,6 +44,18 @@ const addCard = (dataArr) => {
             engWord.innerText = dataArr[index]["eng_word"]     
         }
     })
+}
+
+
+const playAudio = (text, pitch, speed) => {
+    const speech = new SpeechSynthesisUtterance()
+
+    if (speechSynthesis.speaking) return
+    speech.lang = "fr-FR"
+    speech.text = text
+    speech.pitch = pitch
+    speech.rate = speed || 1
+    speechSynthesis.speak(speech)
 }
 
 

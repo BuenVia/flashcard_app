@@ -8,23 +8,25 @@
     </div>
 
     <div class="learn-box-container">
-        {% for sl in study_list %}
-            <button class="link-btn">{{ sl.grammar_type }}</button>
+        {% for gt in grammar_type %}
+            <a href="/studypath/learn/{{ stage }}/vocab/{{ gt.id }}?stage={{ stage }}&grammar_type={{ gt.id }}">
+                <button class="link-btn">{{ gt }}</button>
+            </a>
         {% endfor %}
     </div>
 
-    <div class="learn-box-container">
+    <!-- <div class="learn-box-container">
         <div class="learn-card">
-            <p class="learn-word-spa" id="spaWord">Spanish Word</p>
+            <p class="learn-word-spa" id="spaWord">French Word</p>
             <p class="learn-word-eng" id="engWord">English Word</p>
             <div class="input-container">
                 <input type="text" class="input-user" id="userAns" placeholder="Type here...">
                 <button class="link-btn" id="userSubmit">Next</button>
             </div>
         </div>
-    </div>
+    </div> -->
     
-    {% if study_list|length > 0 %}
+    <!-- {% if study_list|length > 0 %}
         <div class="learn-box-container">
 
             {% for sl in study_list %}
@@ -57,7 +59,7 @@
     
     {% else %}
         <p>Nothing to display yet...</p>
-    {% endif %}
+    {% endif %} -->
 
     
     

@@ -1,0 +1,29 @@
+{% extends "studypath/base.html" %}
+
+{% block content %}
+<div class="page-container">
+
+    <div class="learn-info">
+        <h2>Stage {{ stage }}: Learn</h2>
+    </div>
+
+    <div class="learn-box-container">
+        <div class="learn-card">
+            <p class="learn-word-fre" id="freWord">French Word</p>
+            <p class="learn-word-eng" id="engWord">English Word</p>
+            <div class="input-container">
+                {% comment %} <input type="text" class="input-user" id="userAns" placeholder="Type here..."> {% endcomment %}
+                <button class="link-btn" id="userSubmit">Next</button>
+            </div>
+        </div>
+    </div>
+
+    
+    
+</div>
+
+{% load static %}
+<script src="{% static 'studypath/js/learn.js' %}"></script>
+
+    
+{% endblock content %}

@@ -13,6 +13,7 @@ class Stage(models.Model):
 class GrammarType(models.Model):
     type = models.CharField(max_length=45)
     date_created = models.DateTimeField(auto_now_add=True)
+    stage = models.ForeignKey(Stage, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.type

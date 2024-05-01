@@ -2,7 +2,7 @@ from typing import Any
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from rest_framework import generics
-from rest_framework.request import Request
+# from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Word, Stage, GrammarType
@@ -15,19 +15,15 @@ def index(request):
 
 
 def learn(request, stage):
-    study_list = []
-    grammar_type = GrammarType.objects.all()
-
-    for gt in grammar_type:
-        words = Word.objects.filter(stage=stage).filter(grammar_type=gt)
-        word_list = { 'grammar_type': gt.type, "words": words }
-        study_list.append(word_list)
-
+    grammar_type = GrammarType.objects.filter(stage=stage)
     return render(request, "studypath/learn.html", {
         "stage" : stage, 
-        "study_list": study_list
-        })
+        "grammar_type": grammar_type
+    })
     
+def learn_words(request, stage, gr):
+    words = Word.objects.filter(grammar_type=gr)
+    return render(request, "studypath/learn-words.html", {"words": words})
 
 def practice(request, stage):
     return render(request, "studypath/practice.html", {"stage": stage})
@@ -37,11 +33,12 @@ def test(request, stage):
     return render(request, "studypath/test.html", {"stage": stage})
 
 
-class StudyListCreate(generics.ListCreateAPIView):
+class WordListCreate(generics.ListCreateAPIView):
     serializer_class = WordSerializer
     
     def get_queryset(self):
-        return Word.objects.filter(stage=self.kwargs["stage"])
+        gt = self.request.query_params.get('grammar_type')
+        return Word.objects.filter(grammar_type=gt)
 
 
 class GrammarTypeListCreate(generics.ListCreateAPIView):

@@ -9,6 +9,10 @@ class Stage(models.Model):
     # def __str__(self):
     #     return self.name
 
+    class Meta:
+        managed = True
+        db_table = 'studypath_stage'
+
 
 class GrammarType(models.Model):
     type = models.CharField(max_length=45)
@@ -36,9 +40,8 @@ class Step(models.Model):
         db_table = 'studypath_step'
 
 class Word(models.Model):
-    eng_word = models.CharField(max_length=55)
-    fre_word = models.CharField(max_length=45)
-    fre_word_fem = models.CharField(max_length=45, null=True, blank=True)
+    eng_word = models.CharField(max_length=255)
+    spa_word = models.CharField(max_length=255)
     grammar_type = models.ForeignKey(GrammarType, on_delete=models.CASCADE)
     stage = models.ForeignKey(Stage, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)

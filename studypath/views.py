@@ -23,7 +23,7 @@ def learn(request, stage):
     
 def learn_words(request, stage, gr):
     words = Word.objects.filter(grammar_type=gr)
-    return render(request, "studypath/learn-words.html", {"words": words})
+    return render(request, "studypath/learn-words.html", {"stage": stage,"words": words})
 
 def practice(request, stage):
     return render(request, "studypath/practice.html", {"stage": stage})

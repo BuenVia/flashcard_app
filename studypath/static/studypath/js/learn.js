@@ -24,23 +24,23 @@ const getData = async () => {
 }
 
 const addCard = (dataArr) => {
-    const freWord = document.getElementById("freWord")
+    const spaWord = document.getElementById("spaWord")
     const engWord = document.getElementById("engWord")
     const audioBtn = document.getElementById("audioBtn")
     const submitBtn = document.getElementById("userSubmit")
     let index = 0
    
-    freWord.innerText = dataArr[index]['fre_word']
+    spaWord.innerText = dataArr[index]['spa_word']
     engWord.innerText = dataArr[index]["eng_word"]
     
     audioBtn.addEventListener("click", () => {
-        playAudio(dataArr[index]['fre_word'], .1, 1)
+        playAudio(dataArr[index]['spa_word'], 1, 1)
     })
 
     submitBtn.addEventListener("click", () => {
         if (index < dataArr.length -1) {
             index++
-            freWord.innerText = dataArr[index]['fre_word']
+            spaWord.innerText = dataArr[index]['spa_word']
             engWord.innerText = dataArr[index]["eng_word"]     
         }
     })
@@ -51,7 +51,7 @@ const playAudio = (text, pitch, speed) => {
     const speech = new SpeechSynthesisUtterance()
 
     if (speechSynthesis.speaking) return
-    speech.lang = "fr-FR"
+    speech.lang = "es-ES"
     speech.text = text
     speech.pitch = pitch
     speech.rate = speed || 1

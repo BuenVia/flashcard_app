@@ -10,7 +10,7 @@
       "request": "launch",
       "args": ["runserver"],
       "django": true,
-      "program": "${workspaceFolder}\\manage.py"
+      "program": "${workspaceFolder}/manage.py"
     },
     {
       "name": "Python Debugger: Current File",
